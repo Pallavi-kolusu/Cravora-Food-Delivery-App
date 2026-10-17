@@ -1,0 +1,9 @@
+
+# Compiled Java files
+*.class
+build/
+bin/
+target/
+
+# Eclipse settings
+.metadata/
