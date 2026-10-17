@@ -7,8 +7,8 @@ import java.lang.ClassNotFoundException;
 
 public class DBConnection {
 	private static final String URL = "jdbc:mysql://localhost:3306/fooddeliverydb";
-	private static final String USERNAME = "root";
-	private static final String PASSWORD = "root";
+	private static final String USERNAME = "";
+	private static final String PASSWORD = "";
 	private static Connection connection = null;
 
 	public static Connection getConnection()
