@@ -47,7 +47,6 @@ Java Full Stack Web Development Project
 <img width="1920" height="1080" alt="Screenshot 2026-10-17 123000" src="https://github.com/user-attachments/assets/2c5fa0e1-be00-45f6-bb2d-fd74a8bcc181" />
 <img width="1920" height="1080" alt="Screenshot 2026-10-17 123032" src="https://github.com/user-attachments/assets/8aaeb9da-3555-4120-9ab8-625990b844ee" />
 <img width="1920" height="1080" alt="Screenshot 2026-10-17 123058" src="https://github.com/user-attachments/assets/e071d168-cd53-4b3b-abff-ceb6499065a5" />
-
 <img width="1920" height="1080" alt="Screenshot 2026-10-17 123440" src="https://github.com/user-attachments/assets/fd280810-dff2-48c0-bf35-00af079cc15b" />
 <img width="1920" height="1080" alt="Screenshot 2026-10-17 123500" src="https://github.com/user-attachments/assets/5f9fa3a3-8024-4bfb-98eb-585b9a26166a" />
 <img width="1920" height="1080" alt="Screenshot 2026-10-17 123517" src="https://github.com/user-attachments/assets/39763a27-2e4a-400e-85fe-edf117593066" />
@@ -55,6 +54,5 @@ Java Full Stack Web Development Project
 <img width="1920" height="1080" alt="Screenshot 2026-10-17 123552" src="https://github.com/user-attachments/assets/f3518026-ac1d-43ec-b40c-ff201ffdc4cb" />
 <img width="1920" height="1080" alt="Screenshot 2026-10-17 123604" src="https://github.com/user-attachments/assets/734cdba7-7a7b-45f4-9e95-f09de4fd3b9c" />
 <img width="1920" height="1080" alt="Screenshot 2026-10-17 123622" src="https://github.com/user-attachments/assets/600e848b-1b96-4297-9ffb-cdd6ef896ac5" />
-<img width="1920" height="1080" alt="Screenshot 2026-10-17 123058" src="https://github.com/user-attachments/assets/e071d168-cd53-4b3b-abff-ceb6499065a5" />
 
 
