@@ -1,0 +1,1276 @@
+/* ==========================================================================
+   CRAVORA - CHECKOUT PAGE & ORDER CONFIRMATION & ORDERS HISTORY STYLES
+   Delivery Stepper, Custom Payment Cards & Swiggy/Zomato Orders History UI
+   ========================================================================== */
+
+/* ==========================================================================
+   STEPPER PROGRESS BAR
+   ========================================================================== */
+.stepper-container {
+    width: 90%;
+    max-width: 800px;
+    margin: 110px auto 35px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+
+.step-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    z-index: 2;
+}
+
+.step-circle {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #ffffff;
+    border: 2px solid var(--border-default);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--text-secondary);
+    box-shadow: var(--shadow-sm);
+    transition: all 0.3s ease;
+}
+
+.step-item.active .step-circle {
+    background: var(--primary-gradient);
+    border-color: var(--primary-color);
+    color: #ffffff;
+    box-shadow: 0 4px 14px var(--primary-glow);
+}
+
+.step-item.completed .step-circle {
+    background: var(--success-green);
+    border-color: var(--success-green);
+    color: #ffffff;
+}
+
+.step-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--text-secondary);
+}
+
+.step-item.active .step-title {
+    color: var(--primary-color);
+    font-weight: 800;
+}
+
+.stepper-line {
+    position: absolute;
+    top: 22px;
+    left: 10%;
+    right: 10%;
+    height: 3px;
+    background: var(--border-default);
+    z-index: 1;
+}
+
+/* ==========================================================================
+   CHECKOUT CONTAINER & 2-COLUMN LAYOUT
+   ========================================================================== */
+.checkout-page-layout {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto 90px;
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 32px;
+    align-items: start;
+}
+
+/* Section Box */
+.checkout-box {
+    background: var(--bg-card);
+    border-radius: var(--radius-lg);
+    padding: 28px;
+    border: 1px solid var(--border-default);
+    box-shadow: var(--shadow-sm);
+    margin-bottom: 24px;
+    transition: all var(--transition-base);
+}
+
+.checkout-box:hover {
+    box-shadow: var(--shadow-md);
+    border-color: var(--border-hover);
+}
+
+.checkout-box-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+.box-icon-pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-md);
+    background: var(--primary-light);
+    color: var(--primary-color);
+    font-size: 20px;
+}
+
+.checkout-box-header h2 {
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--text-primary);
+}
+
+/* ==========================================================================
+   FORM CONTROLS
+   ========================================================================== */
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+}
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-group.full-width {
+    grid-column: 1 / -1;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 13px 16px;
+    border: 1.5px solid var(--border-default);
+    border-radius: var(--radius-md);
+    font-size: 14px;
+    color: var(--text-primary);
+    background: var(--bg-main);
+    outline: none;
+    transition: all var(--transition-fast);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: var(--primary-color);
+    background: #ffffff;
+    box-shadow: 0 0 0 4px var(--primary-light);
+}
+
+.form-group textarea {
+    height: 90px;
+    resize: none;
+}
+
+/* ==========================================================================
+   PAYMENT OPTIONS CARDS & ACCORDION
+   ========================================================================== */
+.payment-methods-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.payment-method-group {
+    border: 1.5px solid var(--border-default);
+    border-radius: var(--radius-md);
+    background: var(--bg-main);
+    overflow: hidden;
+    transition: all var(--transition-fast);
+}
+
+.payment-method-group.active {
+    border-color: var(--primary-color);
+    background: #ffffff;
+    box-shadow: 0 4px 16px rgba(255, 84, 0, 0.08);
+}
+
+.payment-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 22px;
+    background: transparent;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    user-select: none;
+}
+
+.payment-card:hover {
+    background: var(--primary-light);
+}
+
+.payment-card-left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.payment-card input[type="radio"] {
+    accent-color: var(--primary-color);
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.payment-card-label {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    cursor: pointer;
+}
+
+.payment-card-title {
+    font-size: 15px;
+    font-weight: 800;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.payment-card-sub {
+    font-size: 12px;
+    color: var(--text-secondary);
+}
+
+.payment-badge {
+    padding: 4px 10px;
+    border-radius: var(--radius-full);
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.payment-badge.instant {
+    background: var(--success-light);
+    color: var(--success-green);
+}
+
+.payment-badge.card-badge {
+    background: #eff6ff;
+    color: #2563eb;
+    border: 1px solid #dbeafe;
+}
+
+.payment-badge.cod {
+    background: #f1f5f9;
+    color: var(--text-secondary);
+}
+
+/* Subpanels inside payment cards */
+.payment-subpanel {
+    padding: 18px 22px 22px 58px;
+    border-top: 1px dashed var(--border-default);
+    background: #fafbfc;
+    animation: subpanelSlide 0.25s ease-out;
+}
+
+@keyframes subpanelSlide {
+    from {
+        opacity: 0;
+        transform: translateY(-6px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.subpanel-title {
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 10px;
+}
+
+/* UPI Apps Chips Selector */
+.upi-apps-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+.upi-app-chip {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+    padding: 10px 16px;
+    border: 1.5px solid var(--border-default);
+    background: #ffffff;
+    border-radius: var(--radius-md);
+    font-size: 13.5px;
+    font-weight: 700;
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+}
+
+.upi-app-chip:hover {
+    border-color: var(--primary-color);
+    background: var(--primary-light);
+    transform: translateY(-1px);
+}
+
+.upi-app-chip.active {
+    border-color: var(--primary-color);
+    background: #fff7ed;
+    color: var(--primary-color);
+    box-shadow: 0 3px 10px rgba(255, 84, 0, 0.16);
+}
+
+.app-logo-svg {
+    flex-shrink: 0;
+    border-radius: 4px;
+}
+
+/* UPI Custom ID Input */
+.upi-id-input-box {
+    margin-top: 14px;
+}
+
+.upi-id-input-box label {
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--text-secondary);
+    margin-bottom: 6px;
+}
+
+.upi-input-wrapper {
+    display: flex;
+    gap: 8px;
+}
+
+.upi-input-wrapper input {
+    flex: 1;
+    padding: 11px 14px;
+    border: 1.5px solid var(--border-default);
+    border-radius: var(--radius-md);
+    font-size: 13px;
+    color: var(--text-primary);
+    background: #ffffff;
+    outline: none;
+    transition: all var(--transition-fast);
+}
+
+.upi-input-wrapper input:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px var(--primary-light);
+}
+
+.upi-verify-btn {
+    padding: 11px 20px;
+    background: var(--text-primary);
+    color: #ffffff;
+    border: none;
+    border-radius: var(--radius-md);
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.upi-verify-btn:hover {
+    background: var(--primary-color);
+}
+
+.upi-hint {
+    display: block;
+    margin-top: 8px;
+    font-size: 11.5px;
+    color: var(--text-secondary);
+}
+
+/* Card Brand Bar & Form */
+.card-brand-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.card-icons-inline {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.card-brand-pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    background: #ffffff;
+    border: 1.5px solid var(--border-default);
+    transition: all var(--transition-fast);
+    opacity: 0.75;
+    overflow: hidden;
+}
+
+.card-brand-pill svg {
+    display: block;
+}
+
+.card-brand-pill.active {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px var(--primary-glow);
+    transform: scale(1.08);
+    opacity: 1;
+}
+
+.card-input-with-icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.card-input-with-icon input {
+    width: 100%;
+    padding: 12px 42px 12px 14px;
+    border: 1.5px solid var(--border-default);
+    border-radius: var(--radius-md);
+    font-size: 14px;
+    font-family: inherit;
+    letter-spacing: 1px;
+    font-weight: 600;
+    color: var(--text-primary);
+    background: #ffffff;
+    outline: none;
+    transition: all var(--transition-fast);
+}
+
+.card-input-with-icon input:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px var(--primary-light);
+}
+
+.card-type-icon {
+    position: absolute;
+    right: 14px;
+    font-size: 18px;
+    pointer-events: none;
+}
+
+.card-form-fields .form-group input {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1.5px solid var(--border-default);
+    border-radius: var(--radius-md);
+    font-size: 13.5px;
+    color: var(--text-primary);
+    background: #ffffff;
+    outline: none;
+    transition: all var(--transition-fast);
+}
+
+.card-form-fields .form-group input:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px var(--primary-light);
+}
+
+.card-split-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-bottom: 14px;
+}
+
+.cvv-tooltip {
+    font-size: 11px;
+    color: var(--text-secondary);
+    cursor: help;
+}
+
+.save-card-check {
+    margin-top: 14px;
+}
+
+.save-card-check label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12.5px;
+    color: var(--text-secondary);
+    cursor: pointer;
+    text-transform: none;
+    letter-spacing: normal;
+    font-weight: 500;
+}
+
+.save-card-check input[type="checkbox"] {
+    accent-color: var(--primary-color);
+    width: 16px;
+    height: 16px;
+}
+
+/* COD Info Box */
+.cod-info-box {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 14px 18px;
+    background: #f8fafc;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-default);
+}
+
+.cod-icon {
+    font-size: 26px;
+    line-height: 1;
+}
+
+.cod-text strong {
+    display: block;
+    font-size: 13px;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+}
+
+.cod-text p {
+    font-size: 12px;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* ==========================================================================
+   ORDER SUMMARY (RIGHT COLUMN)
+   ========================================================================== */
+.checkout-summary-card {
+    background: var(--bg-card);
+    border-radius: var(--radius-lg);
+    padding: 28px;
+    border: 1px solid var(--border-default);
+    box-shadow: var(--shadow-md);
+    position: sticky;
+    top: 100px;
+}
+
+.checkout-summary-card h2 {
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--text-primary);
+    margin-bottom: 18px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.checkout-items-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-height: 240px;
+    overflow-y: auto;
+    padding-right: 6px;
+    margin-bottom: 20px;
+}
+
+.checkout-item-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px dashed var(--border-default);
+}
+
+.item-info-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.item-info-qty {
+    font-size: 12px;
+    color: var(--text-secondary);
+}
+
+.item-info-price {
+    font-size: 15px;
+    font-weight: 800;
+    color: var(--text-primary);
+}
+
+/* Bill Breakdown */
+.checkout-bill {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border-default);
+}
+
+.bill-line {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    color: var(--text-secondary);
+}
+
+.bill-line.free .val {
+    color: var(--success-green);
+    font-weight: 800;
+}
+
+.bill-line.total-payable {
+    padding-top: 16px;
+    margin-top: 6px;
+    border-top: 2px solid var(--border-default);
+}
+
+.bill-line.total-payable .lbl {
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--text-primary);
+}
+
+.bill-line.total-payable .val {
+    font-size: 26px;
+    font-weight: 900;
+    color: var(--primary-color);
+    letter-spacing: -0.8px;
+}
+
+/* Place Order CTA Button */
+.place-order-cta-btn {
+    width: 100%;
+    margin-top: 24px;
+    padding: 16px;
+    background: var(--primary-gradient);
+    color: #ffffff;
+    border: none;
+    border-radius: var(--radius-full);
+    font-size: 16px;
+    font-weight: 800;
+    letter-spacing: 0.3px;
+    cursor: pointer;
+    box-shadow: 0 6px 20px var(--primary-glow);
+    transition: all var(--transition-fast);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.place-order-cta-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 28px var(--primary-glow);
+}
+
+/* ==========================================================================
+   ANIMATED ORDER CONFIRMATION EXPERIENCE (Swiggy/Zomato Delivery Bike + Green Tick)
+   ========================================================================== */
+.confirmation-container {
+    width: 90%;
+    max-width: 820px;
+    min-height: calc(85vh - 120px);
+    margin: 110px auto 70px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+}
+
+/* Stage 1: Animated Delivery Boy on Road (Dead Center Overlay) */
+@keyframes bikeTravel {
+    0% {
+        transform: translateX(-160px);
+        opacity: 0;
+    }
+    20% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    78% {
+        transform: translateX(15px);
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(200px);
+        opacity: 0;
+    }
+}
+
+@keyframes bikeBobbing {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-6px);
+    }
+}
+
+@keyframes wheelSpin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes roadMoveAnim {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: -200px 0;
+    }
+}
+
+@keyframes phaseFadeOut {
+    0%, 75% {
+        opacity: 1;
+        visibility: visible;
+        transform: translate(-50%, -50%) scale(1);
+    }
+    99% {
+        opacity: 0;
+        visibility: hidden;
+        transform: translate(-50%, -50%) scale(0.92);
+        pointer-events: none;
+    }
+    100% {
+        opacity: 0;
+        visibility: hidden;
+        display: none;
+    }
+}
+
+@keyframes phaseRevealIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.94);
+        visibility: hidden;
+    }
+    1% {
+        visibility: visible;
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+        visibility: visible;
+    }
+}
+
+.delivery-animation-stage {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    max-width: 580px;
+    background: #ffffff;
+    border-radius: var(--radius-xl);
+    padding: 55px 35px;
+    border: 1.5px solid var(--border-default);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15), 0 0 30px rgba(255, 84, 0, 0.12);
+    animation: phaseFadeOut 3.2s forwards;
+    z-index: 20;
+    text-align: center;
+    pointer-events: none;
+}
+
+.bike-scene {
+    position: relative;
+    height: 140px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+    overflow: hidden;
+}
+
+.bike-wrapper {
+    animation: bikeTravel 3.2s cubic-bezier(0.2, 0.8, 0.4, 1) infinite;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 2;
+}
+
+.bike-svg-container {
+    animation: bikeBobbing 0.35s infinite ease-in-out;
+}
+
+.wheel-back {
+    transform-origin: 22px 48px;
+    animation: wheelSpin 0.5s linear infinite;
+}
+
+.wheel-front {
+    transform-origin: 76px 48px;
+    animation: wheelSpin 0.5s linear infinite;
+}
+
+.road-strip {
+    position: absolute;
+    bottom: 22px;
+    left: 8%;
+    right: 8%;
+    height: 6px;
+    background: repeating-linear-gradient(90deg, #ff5400 0, #ff5400 20px, transparent 20px, transparent 35px);
+    background-size: 70px 6px;
+    animation: roadMoveAnim 0.6s linear infinite;
+    border-radius: 3px;
+    z-index: 1;
+}
+
+.confirming-text {
+    font-size: 19px;
+    font-weight: 800;
+    color: var(--text-primary);
+    letter-spacing: -0.3px;
+}
+
+.confirming-text .dots {
+    color: var(--primary-color);
+}
+
+/* Stage 2: Success Card with Green Tick (Centered) */
+.order-success-card {
+    opacity: 0;
+    visibility: hidden;
+    animation: phaseRevealIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) 2.9s forwards;
+    background: #ffffff;
+    border-radius: var(--radius-xl);
+    padding: 45px 35px;
+    border: 1px solid var(--border-default);
+    box-shadow: 0 20px 40px -10px rgba(16, 185, 129, 0.15), var(--shadow-md);
+    text-align: center;
+    width: 100%;
+}
+
+/* Animated Green Checkmark */
+@keyframes checkmarkPop {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    60% {
+        transform: scale(1.18);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.success-checkmark-circle {
+    width: 84px;
+    height: 84px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    color: #ffffff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 42px;
+    box-shadow: 0 10px 30px rgba(16, 185, 129, 0.35);
+    margin-bottom: 16px;
+    animation: checkmarkPop 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) 3.1s both;
+    cursor: pointer;
+    transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease;
+    user-select: none;
+}
+
+.success-checkmark-circle:hover {
+    transform: scale(1.12) rotate(5deg);
+    box-shadow: 0 14px 40px rgba(16, 185, 129, 0.55);
+}
+
+.confetti-replay-wrapper {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.confetti-replay-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 18px;
+    border-radius: var(--radius-full);
+    background: #fff7ed;
+    color: var(--primary-color);
+    border: 1.5px solid #ffedd5;
+    font-size: 13px;
+    font-weight: 800;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(255, 84, 0, 0.08);
+    transition: all var(--transition-fast);
+}
+
+.confetti-replay-btn:hover {
+    background: var(--primary-color);
+    color: #ffffff;
+    border-color: var(--primary-color);
+    transform: translateY(-2px) scale(1.04);
+    box-shadow: 0 6px 18px var(--primary-glow);
+}
+
+.order-success-card h1 {
+    font-size: 32px;
+    font-weight: 900;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+    letter-spacing: -0.5px;
+}
+
+.order-success-card p.subtitle {
+    color: var(--text-secondary);
+    font-size: 15px;
+    margin-bottom: 30px;
+}
+
+/* Details Grid */
+.confirmed-details-box {
+    background: var(--bg-main);
+    border-radius: var(--radius-lg);
+    padding: 24px 28px;
+    border: 1px solid var(--border-default);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    text-align: left;
+    margin-bottom: 30px;
+}
+
+.detail-block {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.detail-block .lbl {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.detail-block .val {
+    font-size: 15px;
+    font-weight: 800;
+    color: var(--text-primary);
+}
+
+.detail-block .val.highlight {
+    color: var(--primary-color);
+}
+
+.detail-block .val.status-pill {
+    color: var(--success-green);
+    background: var(--success-light);
+    padding: 4px 10px;
+    border-radius: var(--radius-full);
+    width: fit-content;
+    font-size: 13px;
+}
+
+/* Action Buttons */
+.success-action-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.btn-primary-home {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 32px;
+    background: var(--primary-gradient);
+    color: #ffffff !important;
+    border-radius: var(--radius-full);
+    font-size: 15px;
+    font-weight: 800;
+    box-shadow: 0 6px 20px var(--primary-glow);
+    text-decoration: none;
+    transition: all var(--transition-fast);
+}
+
+.btn-primary-home:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 28px var(--primary-glow);
+}
+
+.btn-secondary-orders {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 28px;
+    background: #ffffff;
+    color: var(--text-primary);
+    border: 1.5px solid var(--border-default);
+    border-radius: var(--radius-full);
+    font-size: 15px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all var(--transition-fast);
+}
+
+.btn-secondary-orders:hover {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+    background: var(--primary-light);
+}
+
+/* ==========================================================================
+   ORDERS HISTORY PAGE STYLES (Swiggy / Zomato Past Orders)
+   ========================================================================== */
+.orders-history-container {
+    width: 90%;
+    max-width: 950px;
+    margin: 110px auto 90px;
+}
+
+.orders-page-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.orders-page-header h1 {
+    font-size: 32px;
+    font-weight: 900;
+    color: var(--text-primary);
+}
+
+.orders-page-header h1 span {
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.orders-list-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.order-history-card {
+    background: var(--bg-card);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-default);
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+    transition: all var(--transition-base);
+}
+
+.order-history-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+    border-color: rgba(255, 84, 0, 0.3);
+}
+
+.order-card-top {
+    padding: 22px 26px;
+    border-bottom: 1px solid var(--border-subtle);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    background: var(--bg-main);
+    flex-wrap: wrap;
+}
+
+.order-restaurant-info {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.restaurant-avatar-badge {
+    width: 46px;
+    height: 46px;
+    border-radius: var(--radius-md);
+    background: var(--primary-light);
+    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+}
+
+.order-restaurant-meta h3 {
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--text-primary);
+    margin-bottom: 3px;
+}
+
+.order-restaurant-meta p {
+    font-size: 13px;
+    color: var(--text-secondary);
+}
+
+.order-meta-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 6px;
+}
+
+.order-id-pill {
+    font-size: 13px;
+    font-weight: 800;
+    color: var(--primary-color);
+    background: var(--primary-light);
+    padding: 4px 10px;
+    border-radius: var(--radius-full);
+}
+
+.order-status-badge {
+    font-size: 12px;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: var(--radius-full);
+}
+
+.order-status-badge.confirmed {
+    background: var(--success-light);
+    color: var(--success-green);
+}
+
+/* Items List in History Card */
+.order-card-items {
+    padding: 20px 26px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.order-item-line {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+}
+
+.order-item-name {
+    font-weight: 700;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.order-item-qty {
+    color: var(--text-secondary);
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.order-item-amt {
+    font-weight: 800;
+    color: var(--text-primary);
+}
+
+/* Bottom Bar */
+.order-card-bottom {
+    padding: 18px 26px;
+    border-top: 1px dashed var(--border-default);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.order-total-price {
+    font-size: 18px;
+    font-weight: 900;
+    color: var(--primary-color);
+}
+
+.reorder-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 9px 20px;
+    background: var(--primary-gradient);
+    color: #ffffff !important;
+    border-radius: var(--radius-full);
+    font-size: 13px;
+    font-weight: 800;
+    text-decoration: none;
+    box-shadow: 0 4px 12px var(--primary-glow);
+    transition: all var(--transition-fast);
+}
+
+.reorder-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px var(--primary-glow);
+}
+
+/* ==========================================================================
+   RESPONSIVE CHECKOUT & ORDERS
+   ========================================================================== */
+@media (max-width: 950px) {
+    .checkout-page-layout {
+        grid-template-columns: 1fr;
+    }
+    .checkout-summary-card {
+        position: static;
+    }
+    .confirmed-details-box {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+}
+
+@media (max-width: 650px) {
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+    .stepper-container {
+        margin-top: 90px;
+    }
+    .order-card-top {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .order-meta-right {
+        align-items: flex-start;
+    }
+}

@@ -1,0 +1,562 @@
+/* ==========================================================================
+   CRAVORA - CART PAGE STYLES (Redesigned FoodTech UI)
+   Delivery Progress Stepper, 2-Column Layout & Bill Summary
+   ========================================================================== */
+
+/* ==========================================================================
+   STEPPER PROGRESS BAR
+   ========================================================================== */
+.stepper-container {
+    width: 90%;
+    max-width: 800px;
+    margin: 110px auto 35px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+
+.step-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    z-index: 2;
+}
+
+.step-circle {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #ffffff;
+    border: 2px solid var(--border-default);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--text-secondary);
+    box-shadow: var(--shadow-sm);
+    transition: all 0.3s ease;
+}
+
+.step-item.active .step-circle {
+    background: var(--primary-gradient);
+    border-color: var(--primary-color);
+    color: #ffffff;
+    box-shadow: 0 4px 14px var(--primary-glow);
+}
+
+.step-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--text-secondary);
+}
+
+.step-item.active .step-title {
+    color: var(--primary-color);
+    font-weight: 800;
+}
+
+.stepper-line {
+    position: absolute;
+    top: 22px;
+    left: 10%;
+    right: 10%;
+    height: 3px;
+    background: var(--border-default);
+    z-index: 1;
+}
+
+/* ==========================================================================
+   CART LAYOUT (2 COLUMNS)
+   ========================================================================== */
+.cart-page-layout {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto 90px;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 32px;
+    align-items: start;
+}
+
+/* Delivery Guarantee Banner */
+.delivery-notice-banner {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 20px;
+    background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+    border: 1px solid #a7f3d0;
+    border-radius: var(--radius-md);
+    margin-bottom: 20px;
+    color: #065f46;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.delivery-notice-banner .banner-icon {
+    font-size: 20px;
+}
+
+/* ==========================================================================
+   CART ITEMS LIST
+   ========================================================================== */
+.cart-items-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.cart-card {
+    background: var(--bg-card);
+    border-radius: var(--radius-lg);
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    border: 1px solid var(--border-default);
+    box-shadow: var(--shadow-sm);
+    transition: all var(--transition-base);
+    position: relative;
+    overflow: hidden;
+}
+
+.cart-card::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: var(--primary-color);
+    opacity: 0;
+    transition: opacity var(--transition-fast);
+}
+
+.cart-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+    border-color: rgba(226, 55, 68, 0.3);
+}
+
+.cart-card:hover::before {
+    opacity: 1;
+}
+
+/* Item Image */
+.cart-image {
+    width: 110px;
+    height: 90px;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    flex-shrink: 0;
+    background: #e2e8f0;
+    position: relative;
+}
+
+.cart-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform var(--transition-fast);
+}
+
+.cart-card:hover .cart-image img {
+    transform: scale(1.08);
+}
+
+/* Item Details */
+.cart-details {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.cart-item-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.food-type-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 16px;
+    height: 16px;
+    border: 1.5px solid #10b981;
+    border-radius: 4px;
+    padding: 2px;
+}
+
+.food-type-icon::after {
+    content: '';
+    width: 6px;
+    height: 6px;
+    background: #10b981;
+    border-radius: 50%;
+}
+
+.cart-details h3 {
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--text-primary);
+}
+
+.cart-details p {
+    color: var(--text-secondary);
+    font-size: 13px;
+    line-height: 1.4;
+    max-width: 450px;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.cart-details .unit-price {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    margin-top: 2px;
+}
+
+/* Interactive Quantity Control (+ / -) */
+.cart-quantity-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.quantity-label {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.cart-quantity-control {
+    display: inline-flex;
+    align-items: center;
+    background: #ffffff;
+    border: 1.5px solid var(--border-default);
+    border-radius: var(--radius-full);
+    padding: 3px 4px;
+    box-shadow: var(--shadow-sm);
+    gap: 2px;
+    transition: all var(--transition-fast);
+}
+
+.cart-quantity-control:hover {
+    border-color: var(--primary-color);
+    box-shadow: 0 4px 14px var(--primary-glow);
+}
+
+.qty-form {
+    margin: 0;
+    padding: 0;
+    display: inline-flex;
+}
+
+.cart-qty-btn {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 1px solid var(--border-default);
+    background: #f8fafc;
+    color: var(--text-primary);
+    font-size: 16px;
+    font-weight: 800;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    transition: all var(--transition-fast);
+}
+
+.cart-qty-btn:hover {
+    background: var(--primary-gradient);
+    color: #ffffff;
+    border-color: transparent;
+    transform: scale(1.1);
+    box-shadow: 0 2px 8px var(--primary-glow);
+}
+
+.cart-qty-btn:active {
+    transform: scale(0.92);
+}
+
+.cart-qty-val {
+    min-width: 26px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 800;
+    color: var(--text-primary);
+    user-select: none;
+    padding: 0 4px;
+}
+
+/* Item Total */
+.item-total-box {
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 2px;
+}
+
+.item-total-label {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--text-muted);
+    text-transform: uppercase;
+}
+
+.item-total {
+    font-size: 20px;
+    font-weight: 900;
+    color: var(--text-primary);
+    white-space: nowrap;
+    letter-spacing: -0.5px;
+}
+
+/* ==========================================================================
+   ORDER SUMMARY CARD (RIGHT COLUMN)
+   ========================================================================== */
+.cart-summary-card {
+    background: var(--bg-card);
+    border-radius: var(--radius-lg);
+    padding: 28px;
+    border: 1px solid var(--border-default);
+    box-shadow: var(--shadow-md);
+    position: sticky;
+    top: 100px;
+}
+
+.cart-summary-card h2 {
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--text-primary);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Savings Offer Pill */
+.offer-banner {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 16px;
+    background: #fffbeb;
+    border: 1px dashed #f59e0b;
+    border-radius: var(--radius-md);
+    margin-bottom: 22px;
+    font-size: 13px;
+    color: #92400e;
+    font-weight: 700;
+}
+
+/* Bill Breakdown List */
+.bill-breakdown {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding-bottom: 20px;
+    border-bottom: 1px dashed var(--border-default);
+}
+
+.bill-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    color: var(--text-secondary);
+}
+
+.bill-row.free-badge .bill-value {
+    color: var(--success-green);
+    font-weight: 800;
+}
+
+.bill-row.grand-total {
+    padding-top: 18px;
+    margin-top: 4px;
+}
+
+.bill-row.grand-total .bill-label {
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--text-primary);
+}
+
+.bill-row.grand-total .bill-value {
+    font-size: 26px;
+    font-weight: 900;
+    color: var(--primary-color);
+    letter-spacing: -0.8px;
+}
+
+/* ==========================================================================
+   BUTTONS & ACTIONS
+   ========================================================================== */
+.checkout-cta-btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 22px;
+    width: 100%;
+    padding: 16px 24px;
+    background: var(--primary-gradient);
+    color: #ffffff !important;
+    border: none;
+    border-radius: var(--radius-full);
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 800;
+    letter-spacing: 0.3px;
+    cursor: pointer;
+    box-shadow: 0 6px 20px var(--primary-glow);
+    transition: all var(--transition-fast);
+}
+
+.checkout-cta-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 28px var(--primary-glow);
+}
+
+.checkout-cta-btn .btn-arrow {
+    font-size: 20px;
+    transition: transform var(--transition-fast);
+}
+
+.checkout-cta-btn:hover .btn-arrow {
+    transform: translateX(4px);
+}
+
+.clear-cart-form {
+    margin-top: 14px;
+}
+
+.clear-cart-action-btn {
+    width: 100%;
+    padding: 12px;
+    background: #ffffff;
+    color: var(--text-secondary);
+    border: 1.5px solid var(--border-default);
+    border-radius: var(--radius-full);
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.clear-cart-action-btn:hover {
+    background: var(--danger-light);
+    color: var(--danger-red);
+    border-color: var(--danger-red);
+}
+
+/* ==========================================================================
+   EMPTY CART UI STATE
+   ========================================================================== */
+.empty-cart-card {
+    max-width: 600px;
+    margin: 40px auto 100px;
+    text-align: center;
+    background: var(--bg-card);
+    padding: 70px 30px;
+    border-radius: var(--radius-xl);
+    border: 1.5px dashed var(--border-default);
+    box-shadow: var(--shadow-sm);
+}
+
+.empty-cart-illustration {
+    font-size: 64px;
+    margin-bottom: 20px;
+    display: block;
+    animation: fadeIn 0.6s ease-out;
+}
+
+.empty-cart-card h2 {
+    font-size: 28px;
+    font-weight: 900;
+    color: var(--text-primary);
+    margin-bottom: 10px;
+    letter-spacing: -0.5px;
+}
+
+.empty-cart-card p {
+    color: var(--text-secondary);
+    font-size: 15px;
+    max-width: 400px;
+    margin: 0 auto 30px;
+    line-height: 1.6;
+}
+
+.browse-restaurants-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 32px;
+    background: var(--primary-gradient);
+    color: #ffffff !important;
+    text-decoration: none;
+    border-radius: var(--radius-full);
+    font-size: 15px;
+    font-weight: 800;
+    box-shadow: 0 6px 20px var(--primary-glow);
+    transition: all var(--transition-fast);
+}
+
+.browse-restaurants-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 28px var(--primary-glow);
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN
+   ========================================================================== */
+@media (max-width: 950px) {
+    .cart-page-layout {
+        grid-template-columns: 1fr;
+    }
+    .cart-summary-card {
+        position: static;
+    }
+}
+
+@media (max-width: 650px) {
+    .stepper-container {
+        margin-top: 90px;
+    }
+    .cart-card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+    }
+    .cart-image {
+        width: 100%;
+        height: 160px;
+    }
+    .item-total-box {
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 10px;
+        border-top: 1px dashed var(--border-default);
+    }
+}

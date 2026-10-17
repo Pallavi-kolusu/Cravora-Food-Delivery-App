@@ -1,0 +1,370 @@
+/* ==========================================================================
+   CRAVORA - AUTH STYLES (LOGIN & SIGNUP)
+   Culinary Split Banner, Ambient Glow & Modern Glassmorphism
+   ========================================================================== */
+
+body.auth-page {
+    min-height: 100vh;
+    background: radial-gradient(circle at top right, #fff7ed 0%, #f9fafb 50%, #fff3eb 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 20px;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Ambient Saffron Flame Glow Spots */
+body.auth-page::before {
+    content: '';
+    position: absolute;
+    width: 450px;
+    height: 450px;
+    background: radial-gradient(circle, rgba(255, 122, 0, 0.18) 0%, rgba(255, 69, 0, 0) 70%);
+    top: -100px;
+    right: -100px;
+    border-radius: 50%;
+    filter: blur(50px);
+    z-index: 0;
+    pointer-events: none;
+}
+
+body.auth-page::after {
+    content: '';
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(245, 158, 11, 0.15) 0%, rgba(255, 84, 0, 0) 70%);
+    bottom: -80px;
+    left: -80px;
+    border-radius: 50%;
+    filter: blur(50px);
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* ==========================================================================
+   AUTH SPLIT CARD CONTAINER
+   ========================================================================== */
+.auth-split-wrapper {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    max-width: 960px;
+    background: #ffffff;
+    border-radius: var(--radius-xl);
+    border: 1px solid rgba(226, 232, 240, 0.8);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(255, 255, 255, 0.8);
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    overflow: hidden;
+    animation: fadeIn 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.auth-split-wrapper.signup-mode {
+    max-width: 1020px;
+}
+
+/* ==========================================================================
+   LEFT: CULINARY FOOD HERO BANNER
+   ========================================================================== */
+.auth-food-banner {
+    position: relative;
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.75) 0%, rgba(15, 23, 42, 0.85) 100%),
+                url('https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=1000&q=80') center/cover no-repeat;
+    padding: 45px 35px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: #ffffff;
+    overflow: hidden;
+}
+
+.auth-split-wrapper.signup-mode .auth-food-banner {
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.75) 0%, rgba(15, 23, 42, 0.85) 100%),
+                url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1000&q=80') center/cover no-repeat;
+}
+
+.banner-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 26px;
+    font-weight: 900;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.banner-brand .logo-text {
+    background: linear-gradient(135deg, #ff9f43 0%, #ff5400 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.banner-middle {
+    margin: 40px 0;
+}
+
+.banner-pill-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    border-radius: var(--radius-full);
+    background: rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(8px);
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    margin-bottom: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.banner-middle h2 {
+    font-size: 32px;
+    font-weight: 900;
+    line-height: 1.2;
+    margin-bottom: 12px;
+    color: #ffffff;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.banner-middle p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+/* Floating Trust Badge */
+.banner-trust-badge {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(12px);
+    padding: 12px 18px;
+    border-radius: var(--radius-lg);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.trust-stars {
+    color: #f59e0b;
+    font-size: 16px;
+}
+
+.trust-text {
+    font-size: 12px;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+/* ==========================================================================
+   RIGHT: AUTH FORM CONTAINER
+   ========================================================================== */
+.auth-form-container {
+    padding: 45px 42px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.auth-form-header {
+    margin-bottom: 26px;
+}
+
+.auth-form-header h1 {
+    font-size: 28px;
+    font-weight: 900;
+    color: var(--text-primary);
+    margin-bottom: 6px;
+    letter-spacing: -0.5px;
+}
+
+.auth-form-header p {
+    font-size: 14px;
+    color: var(--text-secondary);
+}
+
+/* Form Controls */
+.form-grid-auth {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+}
+
+.form-group-auth {
+    margin-bottom: 16px;
+}
+
+.form-group-auth.full-span {
+    grid-column: 1 / -1;
+}
+
+.form-group-auth label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.input-auth-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-auth-icon {
+    position: absolute;
+    left: 14px;
+    font-size: 16px;
+    color: var(--text-muted);
+    pointer-events: none;
+}
+
+.input-auth-wrapper input,
+.input-auth-wrapper textarea,
+.form-group-auth input,
+.form-group-auth textarea {
+    width: 100%;
+    padding: 12px 14px 12px 42px;
+    border: 1.5px solid var(--border-default);
+    border-radius: var(--radius-md);
+    font-size: 14px;
+    color: var(--text-primary);
+    background: var(--bg-main);
+    outline: none;
+    transition: all var(--transition-fast);
+}
+
+.form-group-auth textarea {
+    padding-left: 14px;
+    height: 70px;
+    resize: none;
+}
+
+.input-auth-wrapper input:focus,
+.form-group-auth input:focus,
+.form-group-auth textarea:focus {
+    border-color: var(--primary-color);
+    background: #ffffff;
+    box-shadow: 0 0 0 4px var(--primary-light);
+}
+
+/* Error & Success Banner */
+.error-message {
+    background: var(--danger-light);
+    color: var(--danger-red);
+    padding: 12px 16px;
+    border-radius: var(--radius-md);
+    border: 1px solid rgba(239, 68, 68, 0.2);
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    animation: fadeIn 0.3s ease;
+}
+
+.success-message {
+    background: var(--success-light);
+    color: #065f46;
+    padding: 12px 16px;
+    border-radius: var(--radius-md);
+    border: 1px solid rgba(16, 185, 129, 0.3);
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    animation: fadeIn 0.3s ease;
+}
+
+/* Submit CTA */
+.auth-submit-btn {
+    width: 100%;
+    padding: 14px;
+    background: var(--primary-gradient);
+    color: #ffffff;
+    border: none;
+    border-radius: var(--radius-full);
+    font-size: 15px;
+    font-weight: 800;
+    letter-spacing: 0.3px;
+    cursor: pointer;
+    box-shadow: 0 4px 16px var(--primary-glow);
+    transition: all var(--transition-fast);
+    margin-top: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.auth-submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px var(--primary-glow);
+}
+
+/* Bottom Switch Links */
+.auth-footer-nav {
+    text-align: center;
+    margin-top: 22px;
+    font-size: 14px;
+    color: var(--text-secondary);
+}
+
+.auth-footer-nav a {
+    color: var(--primary-color);
+    font-weight: 800;
+    text-decoration: none;
+    margin-left: 4px;
+}
+
+.auth-footer-nav a:hover {
+    text-decoration: underline;
+}
+
+.auth-back-home {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    width: 100%;
+    text-align: center;
+    margin-top: 16px;
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    transition: all var(--transition-fast);
+}
+
+.auth-back-home:hover {
+    color: var(--primary-color);
+    transform: translateX(-3px);
+}
+
+/* ==========================================================================
+   RESPONSIVE AUTH
+   ========================================================================== */
+@media (max-width: 860px) {
+    .auth-split-wrapper {
+        grid-template-columns: 1fr;
+        max-width: 480px;
+    }
+    .auth-food-banner {
+        display: none;
+    }
+    .auth-form-container {
+        padding: 35px 24px;
+    }
+    .form-grid-auth {
+        grid-template-columns: 1fr;
+    }
+}

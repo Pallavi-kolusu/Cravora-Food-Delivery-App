@@ -1,0 +1,521 @@
+/* ==========================================================================
+   CRAVORA - RESTAURANTS PAGE STYLES
+   Crystal Clear HD Video Hero, Rotating Glowing Animated Borders & Cards
+   ========================================================================== */
+
+/* ==========================================================================
+   HERO SECTION & CRYSTAL CLEAR VIDEO BACKGROUND
+   ========================================================================== */
+.hero {
+    position: relative;
+    width: 100%;
+    height: 640px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #000;
+}
+
+.hero-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* 100% Crystal Clear HD Sharpness - No filters or blur */
+    filter: none;
+    transform: scale(1.0);
+    z-index: 0;
+}
+
+/* Clear transparent overlay for crisp video visibility and readable text */
+.hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0.40) 0%,
+        rgba(0, 0, 0, 0.15) 45%,
+        rgba(0, 0, 0, 0.75) 100%
+    );
+    z-index: 1;
+    pointer-events: none;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 5;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #ffffff;
+    padding: 100px 20px 40px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 24px;
+    border-radius: var(--radius-full);
+    border: 1.5px solid rgba(255, 255, 255, 0.35);
+    background: rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #ffffff;
+    margin-bottom: 22px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    animation: fadeIn 0.8s ease-out;
+}
+
+.hero-content h1 {
+    font-size: 60px;
+    line-height: 1.12;
+    margin-bottom: 18px;
+    font-weight: 900;
+    color: #ffffff;
+    letter-spacing: -1.5px;
+    text-shadow: 0 4px 24px rgba(0, 0, 0, 0.7);
+    animation: fadeIn 1s ease-out;
+}
+
+.hero-content h1 span {
+    background: linear-gradient(135deg, #ff6b6d 0%, #ff385c 50%, #ffa41c 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 2px 8px rgba(255, 56, 92, 0.4));
+}
+
+.hero-content p {
+    max-width: 680px;
+    font-size: 18px;
+    line-height: 1.6;
+    color: #ffffff;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.8);
+    font-weight: 500;
+    animation: fadeIn 1.2s ease-out;
+}
+
+/* ==========================================================================
+   RESTAURANT LISTING SECTION & MODERN HEADING
+   ========================================================================== */
+.restaurant-section {
+    width: 90%;
+    max-width: 1250px;
+    margin: 70px auto 100px;
+}
+
+.section-heading-container {
+    margin-bottom: 45px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Badge with Glowing Pulse Dot */
+.heading-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 16px;
+    background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
+    border: 1.5px solid #fed7aa;
+    border-radius: var(--radius-full);
+    font-size: 12px;
+    font-weight: 800;
+    color: #c2410c;
+    letter-spacing: 0.8px;
+    width: fit-content;
+    box-shadow: 0 2px 8px rgba(234, 88, 12, 0.12);
+}
+
+.pulse-dot {
+    width: 8px;
+    height: 8px;
+    background: #ea580c;
+    border-radius: 50%;
+    box-shadow: 0 0 0 rgba(234, 88, 12, 0.4);
+    animation: pulseGlow 2s infinite;
+}
+
+@keyframes pulseGlow {
+    0% {
+        box-shadow: 0 0 0 0 rgba(234, 88, 12, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 8px rgba(234, 88, 12, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(234, 88, 12, 0);
+    }
+}
+
+.heading-text {
+    max-width: 750px;
+}
+
+.main-title {
+    font-size: 38px;
+    font-weight: 900;
+    color: var(--text-primary);
+    line-height: 1.2;
+    letter-spacing: -1px;
+    margin-bottom: 10px;
+}
+
+.gradient-text {
+    background: linear-gradient(135deg, #ff5400 0%, #e23744 50%, #ff7a00 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+}
+
+.subtitle {
+    color: var(--text-secondary);
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* ==========================================================================
+   RESTAURANTS GRID
+   ========================================================================== */
+.restaurant-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+}
+
+/* ==========================================================================
+   ANIMATED ROTATING GLOWING BORDER (Aceternity UI Border Beam Effect)
+   ========================================================================== */
+@keyframes rotateBorder {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.restaurant-card {
+    position: relative;
+    background: #ffffff;
+    border-radius: 24px;
+    padding: 3px; /* Border thickness for the animated glowing beam */
+    overflow: hidden;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.07);
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    display: flex;
+    flex-direction: column;
+    z-index: 1;
+}
+
+/* Continuous Rotating Conic Gradient Beam */
+.restaurant-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: conic-gradient(
+        from 0deg,
+        transparent 0deg,
+        rgba(255, 78, 80, 0.1) 60deg,
+        #ff4e50 120deg,
+        #e23744 180deg,
+        #ffa41c 240deg,
+        rgba(255, 78, 80, 0.2) 300deg,
+        transparent 360deg
+    );
+    animation: rotateBorder 4s linear infinite;
+    z-index: -2;
+    opacity: 0.85;
+    transition: opacity 0.3s ease;
+}
+
+/* Inner Background Surface */
+.restaurant-card::after {
+    content: '';
+    position: absolute;
+    inset: 3px;
+    background: #ffffff;
+    border-radius: 21px;
+    z-index: -1;
+}
+
+/* Hover State - Intense Glow & Faster Spin */
+.restaurant-card:hover {
+    transform: translateY(-8px);
+    box-shadow:
+        0 20px 40px -10px rgba(226, 55, 68, 0.35),
+        0 0 25px rgba(255, 78, 80, 0.3);
+}
+
+.restaurant-card:hover::before {
+    opacity: 1;
+    animation-duration: 2.2s; /* Spins faster and glows brighter on hover */
+}
+
+/* ==========================================================================
+   CARD MEDIA & BADGES
+   ========================================================================== */
+.image-container {
+    position: relative;
+    width: 100%;
+    height: 230px;
+    overflow: hidden;
+    border-radius: 21px 21px 0 0;
+    background: #e2e8f0;
+}
+
+.restaurant-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.restaurant-card:hover .restaurant-image {
+    transform: scale(1.08);
+}
+
+/* Location Badge */
+.location-badge {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    max-width: 75%;
+    padding: 6px 14px;
+    border-radius: var(--radius-full);
+    background: rgba(15, 23, 42, 0.8);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Rating Badge */
+.rating-badge {
+    position: absolute;
+    right: 14px;
+    bottom: 14px;
+    padding: 6px 12px;
+    border-radius: var(--radius-full);
+    background: #ffffff;
+    color: #0f172a;
+    font-size: 13px;
+    font-weight: 800;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.rating-badge .star-icon {
+    color: #f59e0b;
+    font-size: 14px;
+}
+
+/* ==========================================================================
+   RESTAURANT CONTENT & DETAILS
+   ========================================================================== */
+.restaurant-content {
+    padding: 22px 24px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    border-radius: 0 0 21px 21px;
+}
+
+.restaurant-name {
+    font-size: 20px;
+    font-weight: 800;
+    margin-bottom: 6px;
+    color: var(--text-primary);
+    letter-spacing: -0.3px;
+    transition: color var(--transition-fast);
+}
+
+.restaurant-card:hover .restaurant-name {
+    color: var(--primary-color);
+}
+
+.cuisine {
+    color: var(--text-secondary);
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 16px;
+}
+
+.restaurant-details {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 13px;
+    color: var(--text-secondary);
+}
+
+.detail {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    line-height: 1.4;
+}
+
+.detail-icon {
+    min-width: 16px;
+    font-size: 14px;
+    color: var(--primary-color);
+}
+
+/* Open / Closed Status */
+.open-status {
+    color: var(--success-green);
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.closed-status {
+    color: var(--danger-red);
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.divider {
+    border: none;
+    border-top: 1px dashed var(--border-default);
+    margin: 18px 0;
+}
+
+/* Card Bottom Action */
+.card-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: auto;
+}
+
+.delivery-time {
+    color: var(--primary-color);
+    font-size: 13px;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: var(--primary-light);
+    padding: 6px 12px;
+    border-radius: var(--radius-full);
+}
+
+.view-menu {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    text-decoration: none;
+    background: var(--primary-gradient);
+    color: #ffffff;
+    padding: 10px 20px;
+    border-radius: var(--radius-full);
+    font-size: 13px;
+    font-weight: 700;
+    box-shadow: 0 4px 12px var(--primary-glow);
+    transition: all var(--transition-fast);
+}
+
+.view-menu:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px var(--primary-glow);
+    color: #ffffff;
+}
+
+/* ==========================================================================
+   EMPTY STATE
+   ========================================================================== */
+.no-restaurants {
+    background: var(--bg-card);
+    border-radius: var(--radius-lg);
+    padding: 80px 20px;
+    text-align: center;
+    color: var(--text-secondary);
+    border: 1px dashed var(--border-default);
+    box-shadow: var(--shadow-sm);
+}
+
+.no-restaurants h2 {
+    font-size: 24px;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN
+   ========================================================================== */
+@media (max-width: 1024px) {
+    .restaurant-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+    }
+    .hero-content h1 {
+        font-size: 48px;
+    }
+}
+
+@media (max-width: 650px) {
+    .hero {
+        height: 520px;
+    }
+    .hero-content h1 {
+        font-size: 34px;
+    }
+    .hero-content p {
+        font-size: 15px;
+    }
+    .restaurant-section {
+        width: 92%;
+        margin: 50px auto 70px;
+    }
+    .restaurant-grid {
+        grid-template-columns: 1fr;
+    }
+    .main-title {
+        font-size: 28px;
+    }
+    .heading-main-wrap {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+    }
+    .quick-stats-strip {
+        width: 100%;
+        gap: 8px;
+    }
+}
+
